@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity() {
                 val viewModel: WeatherViewModel by viewModels()
                 viewModel.getForecast(location.latitude, location.longitude)
                     .observe(this, Observer { forecast ->
-                        temperatureText.text = "${forecast.temperature}° F"
+                        temperatureText.text = "%.1f° F".format(forecast.temperature)
                     })
             }
             .addOnFailureListener {
